@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<title>Test</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="robots" content="" />
+	<meta name="DC.Title" content="Test" />
+	<meta name="DC.Description" content="" />
+	<meta name="DC.Keywords" content="" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+	<!-- Load bower and cdn  css files -->
+	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"  />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="bower_components/angucomplete-alt/angucomplete-alt.css" rel="stylesheet" />	
+	<!-- Load less files -->
+	<link rel="stylesheet/less" type="text/css" href="less/styles.less" />
+
+</head>
+<body ng-app="myApp">
+	<div class="container">
+		<div class="row">			
+			<div class="header pull-left col-xs-12" ng-controller="UniversityController">				    
+		      	<a class="brandLogo"><img src="static/images/veritasPrep.jpg"/></a>
+		      	<div class="titleSection pull-left col-xs-6">
+			    	<h2>{{currentUniversity.pageTitle}}</h2>
+			    	<h1>{{currentUniversity.section}}</h1>
+		    	</div>
+		    	<div class="socialMediaSection pull-right col-lg-3 col-md-4 col-sm-4">
+		    		<div class="row">
+		    			<div class="col-xs-4 text-center">
+		    				<span>Views</span>
+		    				<u>{{currentUniversity.pageViews}}</u>
+		    			</div>
+		    			<div class="col-xs-4 text-center">
+		    				<a ng-click="socialMediaShare()">Share <i class="fa fa-share-square-o"></i></a>
+		    			</div>
+		    			<div class="col-xs-4 text-center">
+		    				<a ui-sref="followUniversityUpdates"> + Follow Updates</a>	
+		    			</div>	
+		    		</div>
+		    	</div>		    	
+		    	<div class="jumpToSection pull-right col-lg-3 col-md-4 col-sm-4">
+		    	 <!-- In a complex webApp the html content jumpToSection must be part of an ng-View so the base html will be more clean --> 
+		    	 <!-- Custom Template generated for angucomplete-alt angular directive -->  
+		    	 <script type="text/ng-template" id="/my-custom-template.html">
+			        <div class="angucomplete-holder" ng-class="{'angucomplete-dropdown-visible': showDropdown}">
+			          <input type="text"
+			            placeholder="{{placeholder}}"				            
+			            class="{{inputClass}}"				            				            
+			            autocapitalize="off"
+			            autocorrect="off"
+			            autocomplete="on"
+			            ng-model="searchStr"/>
+			          <div class="angucomplete-dropdown" ng-show="showDropdown">	
+			          	<div class="angucomplete-searching" ng-show="!searching && (!results || results.length == 0)" ng-bind="textNoResults"></div>			                
+			            <div class="angucomplete-row" ng-repeat="result in results | orderBy : '-selected'"  ng-click="selectResult(result)" ng-class="{'angucomplete-selected-row': $index == currentIndex}">			              
+			              <div class="angucomplete-title" ><i class="bioImg"><span>{{ result.originalObject.name | limitTo: 1 }}</span></i><span ng-bind-html="result.title"></span></div>
+			              <div class="sections" ng-show="result.originalObject.selected">
+			              	<ul>
+			              		<li ng-repeat="section in result.originalObject.sections">
+			              			<a href="#{{result.originalObject.section}}" ng-bind-html="section.sectionName | safeHtml"></a>
+			              		</li>
+			              	</ul>
+			              </div>
+			              <div ng-if="matchClass && result.description && result.description != ''" class="angucomplete-description" ng-bind-html="result.description"></div>
+			              <div ng-if="!matchClass && result.description && result.description != ''" class="angucomplete-description">{{result.description}}</div>
+			            </div>				            
+			          </div>
+			        </div>
+				 </script>
+				 <!-- declare angucomplete directive using custom template for results -->   
+	             <div angucomplete-alt id="ex1" placeholder="Jump to" maxlength="50" pause="100" selected-object="selectedUniversity" local-data="availableUniversities" template-url="/my-custom-template.html" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" clear-selected="true">  
+		    	</div>
+		    </div>			    			
+		</div>	  
+	</div>
+
+	<!-- Load bower js imported files -->
+	<script src="bower_components/lodash/dist/lodash.min.js"></script>
+	<script src="bower_components/undescore/underscore-min.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>		
+	<script src="bower_components/angular/angular.min.js"></script>	
+	<script src="bower_components/angular-route/angular-route.min.js"></script>			 
+	<script src="bower_components/angucomplete-alt/angucomplete-alt.js"></script>
+	<!-- Compile less files -->
+	<script src="libs/less.min.js"></script>	
+	<!-- Load Angular module Application -->
+	<script src="static/app/myApp.js" type="text/javascript" charset="utf-8"></script>
+	<script src="static/app/services/university.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

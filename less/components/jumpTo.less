@@ -1,0 +1,74 @@
+/* Jumpto Component Rules */
+
+.angucomplete-holder{
+	input{
+		height:25px;padding: 0px 10px;				
+	}
+	&:after{
+			content: '\f002'; 
+			color: @form-color-text;
+		    display: inline-block;
+    		font-family: FontAwesome;
+    		margin-left: -0.5em;
+    		position: absolute;
+    		right: 5px;
+    		top: 4px;
+    		width: 1.2em;
+	}
+	&.angucomplete-dropdown-visible	{
+		&:after{
+			color: @jump-to-active-color;
+		}
+	}
+	.angucomplete-dropdown {
+		padding: 0px;
+		margin-top: 2px;
+		width: 100%;		
+		border-color: @dark-border-color;
+		.angucomplete-row { 
+			padding: 5px;
+			border-bottom: 1px solid @dark-border-color;
+			margin-bottom: 0px;
+			&:last-child{border-bottom: none;}
+			i.bioImg {
+				span{
+					font-family: robotolight;
+					background: @header-color;
+					width: @jump-to-row-height;
+					float: left;
+					color: white;
+					height: @jump-to-row-height;
+					line-height: @jump-to-row-height;
+					text-align: center;
+					margin-right: 5px;
+				}
+			}	
+			a{ 
+				color: @color-text;											
+			}
+			span{
+				.highlight{background: @jump-to-highlight-color}
+			}	
+			.sections {
+				color: @color-text;
+				ul{
+					li {
+						font-family: "robotolight";
+						
+						&:before{
+							content: '\f105'; 
+							font-family: FontAwesome; 
+							display: inline-block;
+							width: 1.2em; 
+							margin-left: 0.5em;
+						}
+					}
+				}
+			}
+		}
+		.angucomplete-searching {
+		    font-family: robotolight;
+		    padding: 5px 10px;
+		}
+	}
+}

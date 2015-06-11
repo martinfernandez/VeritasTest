@@ -1,0 +1,38 @@
+/** Styles that apply to all base elements **/
+
+ * {margin: 0px; padding: 0px;}
+
+ h1, h2, h3, h4 {margin: 0px; padding: 0px;}
+
+ ul, li {list-style: none;}
+ 
+body {
+  font: @font-size-default @font-family-default;
+  color: @color-primary;  
+  background: white;
+}
+
+a {
+    color: @color-primary;
+    cursor: pointer;
+    &:hover{
+        color:@light-gray;
+        text-decoration: none;
+    }
+}
+
+i {
+    font-style: normal;
+}
+
+label {
+    font-weight: normal;
+}
+
+
+h1{ font-size: 3em;font-weight: normal;}
+h2{ font-size: 2em;font-weight: normal;}
+
+@media (max-width: @screen-md-min) {
+      body { font-size: 12px;}
+}
