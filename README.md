@@ -1,5 +1,5 @@
 # VeritasTest
-Attached you'll find a mockup of a page. You have to implement the markup and css of that page along with the needed javascript code to implement the functionality of the "Jump to" input.
+Attached you'll find a mockup of a page (mockup.pdf). You have to implement the markup and css of that page along with the needed javascript code to implement the functionality of the "Jump to" input.
 
 The behavior of the "Jump to" input is as follows:
 When the user clicks "Jump to", it should display a list of universities. Every university has a list of "child" links (Snapshot, Academics, etc).
